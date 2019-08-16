@@ -1,0 +1,285 @@
+@font-face {
+    font-family: 'Oswald';
+    src: url('../fonts/Oswald-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Fipps';
+    src: url('../fonts/Fipps-Regular.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Pixel';
+    src: url('../fonts/Pixel.ttf') format('truetype');
+}
+
+
+
+
+
+* {
+    font-family: 'Oswald', sans-serif;   
+}
+
+html {
+    height: 100%;
+
+}
+
+body {
+    margin: 0;
+    background-color: #302e47;
+    color: #fff;
+    height: 100%;
+    align-items: center;
+}
+
+
+
+.flex{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.conteudo {
+    
+    position: relative;
+    
+    height: 700px;
+    width: 1100px;
+    min-height:700px;
+    overflow: hidden;
+
+    border: ridge 5px #627fd0;
+
+    background-image:url('../imgs/fundo1.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.parede{
+    
+    position: absolute;
+    left: 1110px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+
+    height: 700px;
+    width: 100px;
+    min-height:700px;
+
+}
+.menu-configuracoes{
+    position: relative;
+    width:300px;
+    height: 120px;
+    
+}
+
+.topico{
+    position: relative;
+    font-size: 1.8em;
+    width: 60px;
+    height: 50px;
+    top: 20px;
+    left: 10px;
+}
+
+div[pontos]{
+    position: absolute;
+    right: 20px;
+    top: 10px;
+
+    font-family: 'Pixel' , sans-serif;
+    font-size: 4em;
+    
+}
+
+div[pontos], .topico{
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+
+   div[wm-flappy]{
+    position: absolute;
+    left: 520px;
+    bottom: 325px;
+
+    height: 50px;
+    width: 60px;
+
+    background-image:url('../imgs/passaro.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 60px 50px;
+   
+}
+
+
+div[parede-top], div[parede-top] div,div[parede-bottom], div[parede-bottom] div{
+    background-image: linear-gradient(to right ,green,lightgreen);
+    border-color: #1f1f1f;
+    border-width: 0 3px 0 3px;
+    border-style: groove;
+    
+}
+
+
+div[parede-top]{
+    height: 500px;
+    width: 100px;
+
+    align-items: center;
+    justify-content: flex-end;
+}
+
+div[parede-bottom]{
+    height: 60px;
+    width: 100px;
+
+    align-items: center;
+    justify-content: flex-start
+}
+
+div[parede-top] div, div[parede-bottom] div{
+    border-width: 3px;
+    height: 30px;
+    width: 120px;
+    
+}
+
+
+
+
+div[aviso-inicial]{
+    position: absolute;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    height: 700px;
+    width: 1100px;
+    min-height:700px;
+
+    background-color: rgba(255,255,255,0.5);
+
+}
+
+div[aviso-inicial] ul, div[aviso-inicial] p{
+    font-family: 'Fipps', sans-serif;
+    font-size: 1.5em;
+    color: black;
+}
+
+div[aviso-inicial] p{
+    font-size: 1.7em;
+    text-decoration: underline;
+    text-shadow: 0px 0px 10px  rgb(255, 218, 10);
+    color:rgb(174, 15, 15);
+}
+
+div[aviso-inicial] ul li{
+    font-size: inherit;
+    font-family: inherit;
+} 
+
+
+.switch {
+    margin: 10px 0 0 40px;
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: 50px;
+
+     
+    
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    
+
+    width: 80px;
+    height: 50px;
+
+    border-radius: 5px;
+    border-width: 3px;
+    border-color: white;
+    border-style: groove;
+    
+    background-image:url('../imgs/fundo1.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80px 50px;
+
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+
+    content: "";
+
+    height:50px;
+    width: 80px;
+    left: -35px;
+    bottom: -3px;
+
+    border-radius: 5px 0 0 5px;
+    border-width: 3px 0 3px 3px;
+    border-color: white;
+    border-style: groove;
+
+    box-shadow: 2px 0 5px 1px rgba(0,0,0,0.5);
+
+    background-image:url('../imgs/fundo2.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80px 50px;
+
+
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-image:url('../imgs/fundo2.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80px 50px;
+  }
+  
+  input:focus + .slider {
+    outline: 0;
+    
+  }
+  
+  input:checked + .slider:before {
+    
+    background-image:url('../imgs/fundo1.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 80px 50px;
+
+    border-radius: 0 5px 5px 0;
+    border-width: 3px 3px 3px 0 ;
+    border-color: white;
+    border-style: groove;
+
+    box-shadow: -2px 0 5px 1px rgba(0,0,0,0.5);
+
+    transform: translateX(65px);
+
+  
+  }

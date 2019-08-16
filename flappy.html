@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Flappy Bird</title>
+    <link rel="stylesheet" href="css/flappy.css">
+</head>
+
+<body class="flex">
+    <h1>Flappy Bird</h1>
+    <div class="conteudo flex">
+
+        <div wm-flappy></div>
+
+        <div class="parede flex">
+            <div parede-top class="flex">
+                <div></div>
+            </div>
+            <div parede-bottom class="flex">
+                <div></div>
+            </div>
+        </div>
+
+        <div pontos>0</div>
+        <div class="menu-configuracoes">
+            <span class="topico">Tema:</span>
+            <label class="switch">
+                <input type="checkbox" onchange="mudaImgFundo(this)">
+                <span class="slider"></span>
+            </label>
+        </div>
+
+
+        <div aviso-inicial class="flex">
+            <div></div>
+            <ul> Comandos:
+                <li>Pressione qualquer tecla para voar</li>
+                <li>Pressione 'R' para reiniciar o jogo</li>
+                <li>Pressione 'ENTER' para começar</li>
+            </ul>
+        </div>
+
+    </div>
+
+
+
+    <script src="js/flappy.js"></script>
+</body>
+
+</html>
