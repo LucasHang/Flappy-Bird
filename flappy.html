@@ -23,22 +23,26 @@
         </div>
 
         <div pontos>0</div>
-        <div class="menu-configuracoes">
-            <span class="topico">Tema:</span>
-            <label class="switch">
-                <input type="checkbox" onchange="mudaImgFundo(this)">
-                <span class="slider"></span>
-            </label>
-        </div>
+
+
 
 
         <div aviso-inicial class="flex">
             <div></div>
+            <div class="menu-configuracoes">
+                <span class="topico">Tema:</span>
+                <label class="switch">
+                    <input type="checkbox" onchange="mudaImgFundo(this)">
+                    <span class="slider"></span>
+                </label>
+            </div>
             <ul> Comandos:
                 <li>Pressione qualquer tecla para voar</li>
                 <li>Pressione 'R' para reiniciar o jogo</li>
+                <li>Pressione 'ESC' para pausar</li>
                 <li>Pressione 'ENTER' para começar</li>
             </ul>
+            <button class="botao" onclick="despausar()">Continuar</button>
         </div>
 
     </div>

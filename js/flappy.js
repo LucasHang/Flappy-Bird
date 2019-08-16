@@ -1,7 +1,13 @@
-window.onkeydown = e =>{
-    if(e.keyCode == 82){
+
+window.onkeydown = ev => {
+    if (ev.keyCode == 82) {
         window.location.reload()
     }
+    if (ev.keyCode == 27) {
+        const estadoDaDiv = document.defaultView.getComputedStyle(aviso, null).display
+        estadoDaDiv != 'flex' ? pausar() : ""
+    }
+
 }
 
 
@@ -9,7 +15,10 @@ const passaro = document.querySelector('[wm-flappy]')
 const conteudo = document.querySelector('.conteudo.flex')
 const pontos = document.querySelector('[pontos]')
 const moldeParede = document.querySelector('.parede.flex')
+
 const aviso = document.querySelector('[aviso-inicial]')
+const botao_resume = aviso.querySelector('.botao')
+const menu_configuracoes = aviso.querySelector('.menu-configuracoes')
 
 const cabeOutraParede = 800
 
@@ -23,7 +32,24 @@ let topLimit = 1000
 let botLimit = 0
 
 let iniciado = false
+let pausado = false
 
+ function despausar() {
+     pausado = false
+     aviso.style.display = 'none'
+     botao_resume.style.display = 'none'
+     menu_configuracoes.style.display = 'none'
+
+}
+
+function pausar() {
+    pausado = true
+
+    aviso.style.display = 'flex'
+    botao_resume.style.display = 'inline'
+    menu_configuracoes.style.display = 'inline'
+
+}
 
 function mudaImgFundo(checkBox) {
     if (checkBox.checked) {
@@ -38,6 +64,7 @@ const perdeu = () => {
     passaro.style.backgroundImage = 'url("G:/Meus(lucas)/Web moderno/dom/imgs/passaro-morto.png")'
 
     aviso.style.display = 'flex'
+
     const divResultado = aviso.firstElementChild
     divResultado.innerHTML += `<p> Você perdeu, mas fez ${pontos.textContent} pontos(s) : )`
 
@@ -84,7 +111,8 @@ function moverParede(parede, inicio, fim, passo, callback) {
 
     let proxParede = parede.previousElementSibling ? parede.previousElementSibling : null
 
-    const novoInicio = inicio - passo
+    let novoInicio = !pausado ? inicio - passo : inicio
+    
 
     if (novoInicio <= 585 && novoInicio >= 430) {
         botLimit = Number.parseFloat(parede.lastElementChild.style.height)
@@ -122,6 +150,7 @@ window.onkeyup = e => {
 
         aviso.style.display = 'none';
 
+
         const clone = paredeFactory()
         moverParede(clone, mainInicio, mainFim, 1, garbageColector)
 
@@ -139,7 +168,7 @@ window.onkeyup = e => {
 
 
         let gravidade = setInterval(function () {
-            alturaAtualPassaro -= 2
+            alturaAtualPassaro = !pausado ? alturaAtualPassaro -2 : alturaAtualPassaro 
             if (passouLimite) {
                 clearInterval(gravidade)
                 return
@@ -154,7 +183,7 @@ window.onkeyup = e => {
                 return
             }
 
-            alturaAtualPassaro += 50
+            alturaAtualPassaro = !pausado ? alturaAtualPassaro + 50 : alturaAtualPassaro
             alturaAtualPassaro = alturaAtualPassaro >= 650 ? 650 : alturaAtualPassaro
 
             passaro.style.bottom = `${alturaAtualPassaro}px`

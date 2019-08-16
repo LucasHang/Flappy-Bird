@@ -76,15 +76,16 @@ body {
     position: relative;
     width:300px;
     height: 120px;
+    display: none;
     
 }
 
 .topico{
     position: relative;
-    font-size: 1.8em;
+    font-size: 2em;
     width: 60px;
     height: 50px;
-    top: 20px;
+    top: 30px;
     left: 10px;
 }
 
@@ -186,13 +187,38 @@ div[aviso-inicial] ul li{
     font-family: inherit;
 } 
 
+.botao{
+    display: none;
+    font-size: 1.5em;
+    
+    font-family: 'Fipps', sans-serif;
+    
+    padding-bottom: 15px;
+    background:none;
+    box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.5);
+
+    color:white;
+    border-radius: 5px;
+    border: groove 2px white;
+}
+.botao:focus{
+    outline: 0;
+}
+
+.botao:hover{
+    cursor: pointer;
+}
+.botao:active{
+    box-shadow: none;
+}
+
 
 .switch {
     margin: 10px 0 0 40px;
     position: relative;
     display: inline-block;
-    width: 80px;
-    height: 50px;
+    width: 100px;
+    height: 70px;
 
      
     
@@ -211,8 +237,8 @@ div[aviso-inicial] ul li{
     cursor: pointer;
     
 
-    width: 80px;
-    height: 50px;
+    width: 100px;
+    height: 70px;
 
     border-radius: 5px;
     border-width: 3px;
@@ -222,7 +248,7 @@ div[aviso-inicial] ul li{
     background-image:url('../imgs/fundo1.jpg');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 80px 50px;
+    background-size: 100px 70px;
 
     transition: .4s;
   }
@@ -232,8 +258,8 @@ div[aviso-inicial] ul li{
 
     content: "";
 
-    height:50px;
-    width: 80px;
+    height:70px;
+    width: 100px;
     left: -35px;
     bottom: -3px;
 
@@ -247,7 +273,7 @@ div[aviso-inicial] ul li{
     background-image:url('../imgs/fundo2.jpg');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 80px 50px;
+    background-size: 100px 70px;
 
 
     transition: .4s;
@@ -257,7 +283,7 @@ div[aviso-inicial] ul li{
     background-image:url('../imgs/fundo2.jpg');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 80px 50px;
+    background-size: 100px 70px;
   }
   
   input:focus + .slider {
@@ -270,7 +296,7 @@ div[aviso-inicial] ul li{
     background-image:url('../imgs/fundo1.jpg');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: 80px 50px;
+    background-size: 100px 70px;
 
     border-radius: 0 5px 5px 0;
     border-width: 3px 3px 3px 0 ;
