@@ -1,11 +1,12 @@
 
-window.onkeydown = ev => {
+window.onkeyup = ev => {
     if (ev.keyCode == 82) {
         window.location.reload()
-    }
-    if (ev.keyCode == 27) {
+    }else if (ev.keyCode == 27) {
         const estadoDaDiv = document.defaultView.getComputedStyle(aviso, null).display
         estadoDaDiv != 'flex' ? pausar() : ""
+    }else{
+        batendoAsas = false
     }
 
 }
@@ -33,6 +34,7 @@ let botLimit = 0
 
 let iniciado = false
 let pausado = false
+let batendoAsas = false
 
  function despausar() {
      pausado = false
@@ -144,7 +146,7 @@ function moverParede(parede, inicio, fim, passo, callback) {
 }
 
 
-window.onkeyup = e => {
+window.onkeydown = e => {
     if (e.keyCode == 13 && !iniciado) {
         iniciado = true;
 
@@ -168,27 +170,32 @@ window.onkeyup = e => {
 
 
         let gravidade = setInterval(function () {
-            alturaAtualPassaro = !pausado ? alturaAtualPassaro -2 : alturaAtualPassaro 
+            alturaAtualPassaro = pausado ? alturaAtualPassaro : batendoAsas ? alturaAtualPassaro + 5 : alturaAtualPassaro - 3   
             if (passouLimite) {
                 clearInterval(gravidade)
                 return
             }
-            alturaAtualPassaro = alturaAtualPassaro <= 0 ? 0 : alturaAtualPassaro
-
+            if(batendoAsas){
+                alturaAtualPassaro = alturaAtualPassaro >= 650 ? 650 : alturaAtualPassaro
+            }else{
+                alturaAtualPassaro = alturaAtualPassaro <= 0 ? 0 : alturaAtualPassaro
+            }
             passaro.style.bottom = `${alturaAtualPassaro}px`
         }, 10)
 
-        window.onkeypress = e => {
-            if (passouLimite) {
-                return
-            }
+        // window.onkeypress = e => {
+        //     if (passouLimite) {
+        //         return
+        //     }
 
-            alturaAtualPassaro = !pausado ? alturaAtualPassaro + 50 : alturaAtualPassaro
-            alturaAtualPassaro = alturaAtualPassaro >= 650 ? 650 : alturaAtualPassaro
+        //     alturaAtualPassaro = !pausado ? alturaAtualPassaro + 50 : alturaAtualPassaro
+        //     alturaAtualPassaro = alturaAtualPassaro >= 650 ? 650 : alturaAtualPassaro
 
-            passaro.style.bottom = `${alturaAtualPassaro}px`
-        }
+        //     passaro.style.bottom = `${alturaAtualPassaro}px`
+        // }
 
+    }else{
+        batendoAsas = true
     }
 }
 
